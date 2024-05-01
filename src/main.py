@@ -20,13 +20,14 @@ if __name__ == "__main__":
     refresh_token = str(comm_module.execute_command("get_refresh_token"))
     device_id = str(comm_module.execute_command("get_device_id"))
 
+    if not (api_key and project_id and refresh_token and device_id):
+        exit("Service wasn't able to get the necessary information from the config file handler")
+
     client = DefaultFirestoreClient(api_key, project_id, refresh_token)
     client.initialize_client()
 
     if client.client is None or client.user_id is None:
         exit("Not valid client or user_id")
 
-    installed_services_handler = DeviceHandler(
-        client.client, client.user_id, device_id
-    )
-    installed_services_handler.start()
+    device_hanlder = DeviceHandler(client.client, client.user_id, device_id)
+    device_hanlder.start()

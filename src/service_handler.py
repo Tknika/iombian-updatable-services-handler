@@ -13,10 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 class InstalledService(TypedDict):
-    """Dict representing the installed_services structure in firebase.
-
-    The structure of the document is `Dict[str, InstalledServices]`.
-    """
+    """Dict representing the installed_services structure in firebase."""
 
     version: str
     env: Dict[str, Any]
@@ -55,15 +52,10 @@ class ServiceHandler:
         self.versions: List[str] = []
 
         fields_dict = installed_service_document.to_dict()
-        if fields_dict is None:
-            self.installed_fields = None
-        else:
-            self.installed_fields = InstalledService(**fields_dict)
+        self.installed_fields = InstalledService(**fields_dict) if fields_dict else None
 
-        if self.installed_fields is None:
-            self._installed_version = None
-        else:
-            self._installed_version = self.installed_fields.get("version")
+        self._installed_version = \
+            self.installed_fields.get("version") if self.installed_fields else None
 
         self._latest_version: Union[str, None] = None
 

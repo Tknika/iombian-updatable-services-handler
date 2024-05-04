@@ -4,7 +4,7 @@ from communication_module import CommunicationModule
 from default_firestore_client import DefaultFirestoreClient
 from device_handler import DeviceHandler
 
-LOG_LEVEL = "DEBUG"
+LOG_LEVEL = "INFO"
 
 logging.basicConfig(
     format="%(asctime)s %(levelname)-8s - %(name)-16s - %(message)s", level=LOG_LEVEL

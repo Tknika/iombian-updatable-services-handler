@@ -119,7 +119,6 @@ class ServiceHandler:
 
         if compare(self.latest_version, self.installed_version) == 1:
             self.device_handler.set_as_updatable(self.name, self.latest_version)
-
         else:
             self.device_handler.set_as_updated(self.name)
 

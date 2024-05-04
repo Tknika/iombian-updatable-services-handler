@@ -29,5 +29,5 @@ if __name__ == "__main__":
     if client.client is None or client.user_id is None:
         exit("Not valid client or user_id")
 
-    device_hanlder = DeviceHandler(client.client, client.user_id, device_id)
-    device_hanlder.start()
+    device_handler = DeviceHandler(client.client, client.user_id, device_id)
+    device_handler.start()

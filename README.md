@@ -22,12 +22,12 @@ To build the docker image, from the cloned repository, execute the docker build 
 docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} .
 ```
 
-For example `docker build -t iombian-updatable-services-hanlder:latest .`
+For example `docker build -t iombian-updatable-services-handler:latest .`
 
 After building the image, execute it with docker run:
 
 ```
-docker run --name ${CONTAINER_NAME} --rm -d -e CONFIG_PORT=5555 iombian-installed-services-hanlder:latest
+docker run --name ${CONTAINER_NAME} --rm -d -e CONFIG_PORT=5555 iombian-installed-services-handler:latest
 ```
 
 - **--name** is used to define the name of the created container.

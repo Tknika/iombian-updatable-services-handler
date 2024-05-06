@@ -42,6 +42,26 @@ docker run --name ${CONTAINER_NAME} --rm -d -e CONFIG_PORT=5555 iombian-installe
     This can be DEBUG, INFO, WARN or ERROR.
     Default value is INFO.
 
+Otherwise, a `docker-compose.yml` file can also be used to launch the container:
+
+```
+version: 3
+
+services:
+  iombian-updatable-services-handler:
+    image: iombian-updatable-services-handler
+    container_name: iombian-updatable-services-handler
+    restart: unless_stopped
+    environment:
+      CONFIG_HOST: "iombian-config-file-handler"
+      CONFIG_PORT: 5555
+      LOG_LEVEL: "INFO"
+```
+
+```
+docker compose up -d
+```
+
 ## Author
 (c) 2024 IoMBian team ([Aitor Iturrioz Rodríguez](https://github.com/bodiroga), [Aitor Castaño Mesa](https://github.com/aitorcas23)).
 

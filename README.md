@@ -27,7 +27,7 @@ For example `docker build -t iombian-updatable-services-handler:latest .`
 After building the image, execute it with docker run:
 
 ```
-docker run --name ${CONTAINER_NAME} --rm -d -e CONFIG_PORT=5555 iombian-installed-services-handler:latest
+docker run --name ${CONTAINER_NAME} --rm -d -e CONFIG_PORT=5555 iombian-updatable-services-handler:latest
 ```
 
 - **--name** is used to define the name of the created container.
@@ -49,7 +49,7 @@ version: 3
 
 services:
   iombian-updatable-services-handler:
-    image: iombian-updatable-services-handler
+    image: iombian-updatable-services-handler:latest
     container_name: iombian-updatable-services-handler
     restart: unless_stopped
     environment:
